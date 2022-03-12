@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Python Flask Bucket List App</title>
+ 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://gist.githubusercontent.com/hellt/bc4fc51d6f1b9584605517f5c8d6a5a0/raw/1541916ad019f8b5349d7353489b6fd2d36513dd/jumbotron-narrow.css" rel="stylesheet">
+    
+    <!--<link href="signup.css" rel="stylesheet">-->
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(function() {
+        $('#btnBill').click(function() {
+    
+            $.ajax({
+                url: '/billApp',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+    </script>
+
+
+    
+  </head>
+ 
+  <body>
+ 
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <!--<li role="presentation" ><a href="main">Home</a></li>
+            <li role="presentation"><a href="#">Sign In</a></li>
+            <li role="presentation" class="active"><a href="#">Sign Up</a></li>
+            -->
+          </ul>
+        </nav>
+        <!--<h3 class="text-muted">Python Flask App</h3>-->
+      </div>
+ 
+      <div class="jumbotron">
+        <h1 style="text-align: center;">Billing App</h1>
+        <form class="form-bill">
+        <label for="inputName" class="sr-only">Product Name</label>
+        <input type="name" name="prodName" id="prodName" class="form-control" placeholder="Product Name" required autofocus>
+        <label for="inputEmail" class="sr-only">Quantity</label>
+        <input type="email" name="quantity" id="quantity" class="form-control" placeholder="Quantity" required autofocus>
+        <label for="price" class="sr-only">Price</label>
+        <input type="number" name="price" id="price" class="form-control" placeholder="Price" required>
+         
+        <button id="btnBill" class="btn btn-lg btn-primary btn-block" type="button">Bill</button>
+      </form>
+      </div>
+ 
+       
+ 
+      <footer class="footer">
+        <p>&copy; Phenomenal's Group 22</p>
+      </footer>
+ 
+    </div>
+  </body>
+</html>
